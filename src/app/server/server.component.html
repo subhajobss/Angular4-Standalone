@@ -1,0 +1,29 @@
+<p>The Server Component</p>
+<button class="btn btn-primary" [disabled]="allowServer">Server</button>
+<hr>
+<div class="col-md-8">
+    <input type="text"  class="form-control" (input)="onUpdateServerName($event)">
+</div>
+<p>{{serverName}} </p>
+<br>
+<hr>
+<div class="">
+    <input type="text" class="form-control input-sm" placeholder="Username" [(ngModel)]="username">
+    <p>Username : {{username}}</p>
+    <button class="btn btn-primary" [disabled]="!username"  (click) = "resetUser()">User Reset</button>
+</div>
+<hr>
+
+<div>
+<!-- Assignment for Directives -->
+    <button class="btn btn-primary" (click)="toggleDisplay($event)">Display Details</button>
+    <p *ngIf="this.displayServer">servers works!            
+            dev server
+            test server
+            The Server Component</p>
+    <div *ngFor="let click of clicks; let i=index" 
+         [ngStyle]="{'backgroundColor':i>=5?'blue':''}"
+         [ngClass]="{'white-color':i>5}">
+         <h3>Clicked on {{click}}</h3>
+    </div>
+</div>
